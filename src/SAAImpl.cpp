@@ -20,16 +20,17 @@
 
 CSAASoundInternal::CSAASoundInternal()
 	:
-m_nClockRate(EXTERNAL_CLK_HZ),
-m_bHighpass(false),
-m_nSampleRate(SAMPLE_RATE_HZ),
-m_nOversample(DEFAULT_OVERSAMPLE),
+m_chip(),
 m_uParam(0),
 m_uParamRate(0),
+m_nClockRate(EXTERNAL_CLK_HZ),
+m_nSampleRate(SAMPLE_RATE_HZ),
+m_nOversample(DEFAULT_OVERSAMPLE),
+m_bHighpass(false),
 #if defined(DEBUGSAA) || defined(USE_CONFIG_FILE)
 m_nDebugSample(0),
 #endif
-m_chip()
+m_pChannelBuffer{}
 {
 #ifdef USE_CONFIG_FILE
 	m_Config.ReadConfig();
